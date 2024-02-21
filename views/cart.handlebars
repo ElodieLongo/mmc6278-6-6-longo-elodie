@@ -14,22 +14,19 @@
     <div class="cart-items">
 <!-- TODO: 👇Use a handlebars each helper to loop over cart items👇 -->
 
-
-  {{#each cartItem}}
-    <li>{{this}}</li>
-  {{/each}}
+{{#each cartItems}}
 
         <div class="cart-item">
     <!-- replace with inventoryId -->
           <a
-            href="/product/1"
+            href="/product/{{this.id}}"
             class="cart-item-info">
     <!-- replace with product image -->
-            <img src="/images/strat.jpg" alt="Stratocaster" />
+            <img src="/images/{{this.image}}" alt="{{this.name}}" />
             <div>
     <!-- replace with product name and price -->
-              <p>Stratocaster</p>
-              <p>$599.99</p>
+              <p>{{this.name}}</p>
+              <p>{{this.price}}</p>
             </div>
           </a>
           <div class="cart-item-subtotal">
@@ -38,29 +35,32 @@
                 Quantity
 <!-- replace with cart id, set max to inventoryQuantity, value to quantity -->
                 <input
-                  data-cart-id="1"
+                  data-cart-id={{this.id}}
                   type="number"
                   min="0"
-                  max="3"
-                  value="1" />
+                  max={{this.inventoryQuantity}}
+                  value={{this.quantity}} />
               </label>
               <!-- replace with cart id -->
               <button
                 class="remove-from-cart"
-                data-cart-id="1">
+                data-cart-id={{this.id}}>
                 Remove
               </button>
             </div>
 <!-- replace with calculatedPrice -->
-            <p>$599.99</p>
+            <p>${{this.calculatedPrice}}</p>
           </div>
         </div>
         <hr />
+
+        {{/each}}
+
 <!-- TODO: 👆Use a handlebars each helper to loop over cart items👆 -->
       <div class="cart-total">
         <p>Total:</p>
 <!-- TODO: Replace with cart total -->
-        <p>$123.45</p>
+        <p>${{total}}</p>
       </div>
       <button id="emptyCart">Empty Cart</button>
     </div>
@@ -69,7 +69,3 @@
 <footer>
   <p>&copy; Music Shop</p>
 </footer>
-<!-- 👇Remove this markup when converting to a handlebars template 👇 -->
-</body>
-</html>
-<!-- 👆Remove this markup when converting to a handlebars template👆 -->
