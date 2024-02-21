@@ -26,7 +26,7 @@ router.get('/cart', async (req, res) => {
     `SELECT
         cart.id,
         cart.inventory_id AS inventoryId,
-        cart.quantity,
+        cart.quantity,  
         inventory.price,
         ROUND(inventory.price * cart.quantity, 2) AS calculatedPrice,
         inventory.name,
