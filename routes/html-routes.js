@@ -19,6 +19,7 @@ router.get('/product/:id', async (req, res) => {
 
   // TODO: Convert the response below to render a handlebars template
   res.render(path.join(__dirname, '../views/product.handlebars'),{product: product, cartCount: cartCount})
+  console.log(cartCount)
 })
 
 router.get('/cart', async (req, res) => {
@@ -42,7 +43,6 @@ router.get('/cart', async (req, res) => {
 
   // TODO: Convert the response below to render a handlebars template
   res.render(path.join(__dirname, '../views/cart.handlebars'), {cartItems: cartItems, total: total})
-  console.log(cartItems)
 })
 
 module.exports = router
