@@ -12,7 +12,7 @@
     <section id="saleItems">
 <!-- TODO: 👇Use a handlebars each helper to loop over inventory items👇 -->
   {{#each rows}}
-      <a href="/product/1" class="sale-item">
+      <a href="/product/{{this.id}}" class="sale-item">
         <div class="item-img-container">
           <!-- replace with product image and name -->
           <img src= "images/{{this.image}}" alt={{this.name}} />
@@ -21,7 +21,7 @@
         </div>
   <!-- replace with product name and price -->
         <p>{{this.name}}</p>
-        <p>{{this.price}}</p>
+        <p>${{this.price}}</p>
       </a>
   {{/each}}
 <!-- TODO: 👆Use a handlebars each helper to loop over inventory items👆 -->

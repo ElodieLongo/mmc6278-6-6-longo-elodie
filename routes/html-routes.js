@@ -40,7 +40,6 @@ router.get('/cart', async (req, res) => {
   const total = cartItems
     .reduce((total, item) => item.calculatedPrice + total, 0)
     .toFixed(2)
-
   // TODO: Convert the response below to render a handlebars template
   res.render(path.join(__dirname, '../views/cart.handlebars'), {cartItems: cartItems, total: total})
 })
