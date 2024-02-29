@@ -9,7 +9,7 @@ async function updateCartQuantity(e) {
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({quantity})
+    body: JSON.({quantity})
   })
   window.location.replace('/cart')
 }
